@@ -94,16 +94,16 @@ namespace OpenSSL.Extensions
 		public int ServerSniCb(IntPtr ssl, IntPtr ad, IntPtr arg)
 		{
 			//Hostname in TLS extension
-			var extServerNamePtr = Native.SSL_get_servername(ssl, TLSEXT_NAMETYPE_host_name);
-			var extServerName = Marshal.PtrToStringAnsi(extServerNamePtr);
+			//var extServerNamePtr = Native.SSL_get_servername(ssl, TLSEXT_NAMETYPE_host_name);
+			//var extServerName = Marshal.PtrToStringAnsi(extServerNamePtr);
 
-			if (!_serverName.Equals(extServerName))
-			{
-#if DEBUG
-				Console.WriteLine("Server names are not equal");
-#endif
-				throw new Exception("Server names are not equal");    
-			}
+			//if (!_serverName.Equals(extServerName))
+			//{
+//#if DEBUG
+//				Console.WriteLine("Server names are not equal");
+//#endif
+			//	throw new Exception("Server names are not equal");    
+			//}
 
 			return (int)Errors.SSL_TLSEXT_ERR_OK;
 		}
