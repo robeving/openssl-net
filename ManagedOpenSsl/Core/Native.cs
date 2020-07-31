@@ -203,9 +203,6 @@ namespace OpenSSL.Core
 		public extern static IntPtr BN_options();
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr MD2_options();
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr RC4_options();
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
@@ -659,9 +656,6 @@ namespace OpenSSL.Core
 		public extern static void X509_STORE_free(IntPtr x);
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static int X509_STORE_up_ref(IntPtr x);
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr X509_STORE_CTX_new();
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
@@ -691,9 +685,6 @@ namespace OpenSSL.Core
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static void X509_INFO_free(IntPtr a);
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static int X509_INFO_up_ref(IntPtr a);
 
 		#endregion
 
@@ -1185,16 +1176,6 @@ namespace OpenSSL.Core
 
 		#endregion
 
-		#region X509_INFO
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static int PEM_write_bio_X509_INFO(IntPtr bp, IntPtr x);
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr PEM_read_bio_X509_INFO(IntPtr bp, IntPtr x, pem_password_cb cb, IntPtr u);
-
-		#endregion
-
 		#region X509_AUX
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
@@ -1219,9 +1200,6 @@ namespace OpenSSL.Core
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static int PEM_write_bio_X509_REQ_NEW(IntPtr bp, IntPtr x);
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr PEM_read_bio_X509_REQ_NEW(IntPtr bp, IntPtr x, pem_password_cb cb, IntPtr u);
 
 		#endregion
 
@@ -1378,9 +1356,6 @@ namespace OpenSSL.Core
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr EVP_md_null();
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr EVP_md2();
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr EVP_md4();
@@ -1580,18 +1555,6 @@ namespace OpenSSL.Core
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr EVP_cast5_ofb();
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr EVP_rc5_32_12_16_cbc();
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr EVP_rc5_32_12_16_ecb();
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr EVP_rc5_32_12_16_cfb64();
-
-		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr EVP_rc5_32_12_16_ofb();
 
 		[DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr EVP_aes_128_ecb();
@@ -2502,15 +2465,6 @@ namespace OpenSSL.Core
 		#endregion
 
 		#region SSL Methods
-
-		[DllImport(SSLDLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr SSLv2_method();
-
-		[DllImport(SSLDLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr SSLv2_server_method();
-
-		[DllImport(SSLDLLNAME, CallingConvention = CallingConvention.Cdecl)]
-		public extern static IntPtr SSLv2_client_method();
 
 		[DllImport(SSLDLLNAME, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr SSLv3_method();
