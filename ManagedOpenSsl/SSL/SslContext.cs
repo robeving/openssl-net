@@ -236,7 +236,12 @@ namespace OpenSSL.SSL
 
 		public int UsePrivateKey(CryptoKey key)
 		{
-			return Native.ExpectSuccess(Native.SSL_CTX_use_PrivateKey(ptr, key.Handle));
+		  // in multi threaded use cases I see a lot of access violation exceptions here - not good!
+			// I think that by going single threaded we resolve these, as such I just lock any member object
+			lock (alpnExt)
+			{
+				return Native.ExpectSuccess(Native.SSL_CTX_use_PrivateKey(ptr, key.Handle));
+			}
 		}
 
 		public int UsePrivateKeyFile(string filename, SslFileType type)
