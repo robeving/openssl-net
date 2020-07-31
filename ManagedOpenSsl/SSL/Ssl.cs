@@ -230,12 +230,16 @@ namespace OpenSSL.SSL
 
 				Native.SSL_get0_alpn_selected(Handle, out ptr, out len);
 
-				if (ptr == IntPtr.Zero)
-					throw new AlpnException("Cant get selected protocol. See if ALPN was included into client/server hello");
-
-				var buf = new byte[len];
-				Marshal.Copy(ptr, buf, 0, len);
-				return Encoding.ASCII.GetString(buf, 0, len);
+				if (ptr != IntPtr.Zero)
+				{
+				  var buf = new byte[len];
+				  Marshal.Copy(ptr, buf, 0, len);
+				  return Encoding.ASCII.GetString(buf, 0, len);
+				}
+				else
+				{
+				  return string.Empty;
+				}
 			}
 		}
 
